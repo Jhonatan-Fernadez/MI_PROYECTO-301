@@ -52,7 +52,7 @@ Se considero la estructura del frontend y backend en el mismo repositorio ya que
 ```bash
 
 # Clonar el repositorio
-git clone 
+git clone https://github.com/Jhonatan-Fernadez/MI_PROYECTO-301.git
 
 # Instalar dependencias
 npm install
