@@ -2,7 +2,7 @@
 
 ## Información del Documento
 
-**Última actualización:** [DD/MM/YYYY]  
+**Última actualización:** [13/10/2025]  
 **Versión del prototipo:** [v1.0]  
 **Herramienta:** Figma  
 
@@ -23,7 +23,7 @@ Este documento centraliza toda la información sobre los **diseños y prototipos
 ## Enlaces Principales
 
 ### Proyecto Principal
-**URL:** [https://www.figma.com/file/XXXXX/nombre-proyecto](URL_COMPLETA_DE_FIGMA)
+**URL:** [https://www.figma.com/design/55tXZz94bKQ340pRl7jrQo/tienda-online?node-id=15-60&t=eQnTmES1iQjxebbp-1](URL_COMPLETA_DE_FIGMA)
 
 ---
 
@@ -38,12 +38,12 @@ Este documento centraliza toda la información sobre los **diseños y prototipos
 - **Colores de estado:** #C057B4
   - Éxito: #07FF87
   - Error: #F50808
-  - Advertencia: #
-  - Info: #XXXXXX
+  - Advertencia: #e06b0bff
+  - Info: rgba(11, 233, 85, 1)
 
 **Tipografía:**
-- **Principal:** [Nombre de fuente] - Textos y contenido
-- **Títulos:** [Nombre de fuente] - Encabezados
+- **Principal:** [Open Sans Regular] - para descripciones y textos
+- **Títulos:** [Open Sans Bolde] - para encabezados y categorías
 
 
 **Espaciado:**
@@ -55,16 +55,16 @@ Este documento centraliza toda la información sobre los **diseños y prototipos
 ## Pantallas incluidas:**
 ### Flujo Principal
 1. **Página de bienvenida**
-   
+  La página de bienvenida es la primera pantalla que ven los usuarios al entrar a la tienda online. Su objetivo es captar la atención con promociones, mostrar categorías principales y facilitar la navegación para que el usuario encuentre productos rápidamente.
 
 2. **Formulario de registro**
-   
+   El formulario de registro permite a nuevos usuarios crear una cuenta para poder realizar compras, guardar favoritos y acceder a promociones exclusivas. Está diseñado para ser simple y rápido, incentivando la conversión
 
 3. **Verificación de email**
-   
+   Esta pantalla se muestra después de que el usuario completa el formulario de registro. Su función es confirmar que el correo electrónico proporcionado es válido y pertenece al usuario para garantizar seguridad y mejorar la comunicación.
 
 4. **Login**
-   
+   Pantalla que permite a usuarios registrados acceder a su cuenta para gestionar pedidos, ver historial, y realizar compras de forma personalizada
 
 **Interacciones prototipadas:**
 - Navegación entre pantallas
@@ -136,10 +136,10 @@ Este documento centraliza toda la información sobre los **diseños y prototipos
 ### Para el Equipo de Desarrollo
 
 **Antes de comenzar un sprint:**
-- [ ] Revisar el prototipo de Figma correspondiente al sprint
-- [ ] Identificar todos los componentes necesarios
-- [ ] Validar los endpoints de backend requeridos
-- [ ] Confirmar las historias de usuario vinculadas
+- [x] Revisar el prototipo de Figma correspondiente al sprint
+- [x] Identificar todos los componentes necesarios
+- [x] Validar los endpoints de backend requeridos
+- [x] Confirmar las historias de usuario vinculadas
 
 **Durante el desarrollo:**
 - [ ] Consultar especificaciones de diseño (colores, tipografía, espaciado)
