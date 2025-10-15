@@ -22,7 +22,7 @@ Repositorio creado con la finalidad de explicar y asesorar a los alumnos de Inge
 
 ### Backend 
 - Node.js / Javascript / Express
-- Base de datos: MySQL
+- Base de datos: PostgreSQL
 
 
 
