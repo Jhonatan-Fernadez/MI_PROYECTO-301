@@ -27,7 +27,7 @@ const router = express.Router();
  *    summary: Obtener las rutas de los usuarios
  *    tags: [Users]
  *    responses:
- *      200:
+ *      201:
  *        description: ok
  */
 /**
@@ -60,10 +60,83 @@ const router = express.Router();
  *      500:
  *        description: Error del servidor
  */
+/**
+ * @swagger
+ * /api/users/{id}:
+ *   put:
+ *     summary: Actualizar usuario existente
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID del usuario a actualizar
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *                 example: jhonRusmer@gmail.com
+ *               name:
+ *                 type: string
+ *                 example: jhon
+ *     responses:
+ *       201:
+ *         description: Usuario actualizado correctamente
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/User'
+ *       400:
+ *         description: Datos inválidos
+ *       500:
+ *         description: Error del servidor
+ */
+/**
+ * @swagger
+ * /api/users/{id}:
+ *   delete:
+ *     summary: Eliminar usuario existente
+ *     tags: [Users]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         description: ID del usuario a eliminar
+ *         schema:
+ *           type: string
+ *     responses:
+ *       201:
+ *         description: Usuario eliminado correctamente
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 success:
+ *                   type: boolean
+ *                   example: true
+ *                 message:
+ *                   type: string
+ *                   example: Usuario eliminado correctamente
+ *                 data:
+ *                   $ref: '#/components/schemas/User'
+ *       400:
+ *         description: Usuario no encontrado
+ *       500:
+ *         description: Error del servidor
+ */
 //Rutas par llamar al usuario
 router.get('/', userController.getUsers);
 router.post('/', userController.createUser);
 router.put('/:id', userController.updateUser);
+router.delete('/:id', userController.deleteUser);
 //Metodo para eliminar DELETE
 //Metodo para actualizar PUT
 //Metodo para modificar PPATCH

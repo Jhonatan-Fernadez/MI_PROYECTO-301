@@ -58,4 +58,21 @@ export const userController = {
       });
     }
   },
+  async deleteUser(req, res) {
+    try {
+      const { id } = req.params;
+      const deletedUser = await userService.deleteUser(id);
+      res.status(201).json({
+        success: true,
+        message: 'Usuario eliminado correctamente',
+        data: deletedUser
+      });
+    } catch (error) {
+      if (error.code === 'P2025') {
+        res.status(400).json({ success: false, message: 'Usuario no encontrado' });
+      } else {
+        res.status(500).json({ success: false, message: error.message });
+      }
+    }
+  }
 };
