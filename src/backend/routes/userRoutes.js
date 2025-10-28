@@ -1,5 +1,5 @@
 import express from 'express';
-import { userController } from '../controllers/userController.js';
+import { userControllers } from '../controllers/userControllers.js';
 
 const router = express.Router();
 
@@ -133,10 +133,10 @@ const router = express.Router();
  *         description: Error del servidor
  */
 //Rutas par llamar al usuario
-router.get('/', userController.getUsers);
-router.post('/', userController.createUser);
-router.put('/:id', userController.updateUser);
-router.delete('/:id', userController.deleteUser);
+router.get('/', userControllers.getUsers);
+router.post('/', userControllers.createUser);
+router.put('/:id', userControllers.updateUser);
+router.delete('/:id', userControllers.deleteUser);
 //Metodo para eliminar DELETE
 //Metodo para actualizar PUT
 //Metodo para modificar PPATCH

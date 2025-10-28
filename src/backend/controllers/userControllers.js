@@ -1,9 +1,9 @@
-import { userService } from "../services/userServices.js";
+import { userServices } from "../services/userServices.js";
 
-export const userController = {
+export const userControllers = {
   async getUsers(req, res) {
     try {
-      const users = await userService.getUsers();
+      const users = await userServices.getUsers();
       res.status(200).json({
         succes: true,
         data: users,
@@ -26,7 +26,7 @@ export const userController = {
           message: "Email y nombre son obligatorios",
         });
       }
-      const newUser = await userService.createUser({ email, name });
+      const newUser = await userServices.createUser({ email, name });
       res.status(201).json({
         succes: true,
         data: newUser,
@@ -44,7 +44,7 @@ export const userController = {
       const { id } = req.params;
       const updateData = req.body;
 
-      const updatedUser = await userService.updateUser(id, updateData);
+      const updatedUser = await userServices.updateUser(id, updateData);
 
       res.status(200).json({
         success: true,
@@ -61,7 +61,7 @@ export const userController = {
   async deleteUser(req, res) {
     try {
       const { id } = req.params;
-      const deletedUser = await userService.deleteUser(id);
+      const deletedUser = await userServices.deleteUser(id);
       res.status(201).json({
         success: true,
         message: 'Usuario eliminado correctamente',

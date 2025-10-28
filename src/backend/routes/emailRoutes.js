@@ -1,5 +1,5 @@
 import express from 'express';
-import { registerUser } from '../controllers/emailController.js';
+import { registerUser } from '../controllers/emailControllers.js';
 
 const router = express.Router();
 /**
@@ -16,6 +16,7 @@ const router = express.Router();
  *             type: object
  *             properties:
  *               email:
+ * 
  *                 type: string
  *                 example: "miguelpi@gmail.com"
  *               name:
