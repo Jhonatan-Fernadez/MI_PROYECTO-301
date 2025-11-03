@@ -47,4 +47,12 @@ const router = express.Router();
 
 router.post("/register", authControllers.register);
 
+router.get(
+  "/google/callback",
+  passport.authenticate("google", {
+    failureRedirect: "http://localhost:5173/login-error",
+  }),
+  authControllers.googleCallBack
+);
+
 export default router;
