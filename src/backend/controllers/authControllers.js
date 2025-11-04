@@ -1,32 +1,34 @@
 import { authServices } from "../services/authServices.js";
+import { generateToken } from "../utils/auth.js";
 
 export const authControllers = {
-    //Registro
-    async register(req, res) {
-        try {
-            const { email, name, password } = req.body;
-            const result = await authServices.register({ email, name, password });
-            res.status(201).json({
-                success: true,
-                message: "Usuario registrado exitosamente",
-                data: result,
-            });
-        } catch (error) {
-            res.status(500).json({
-                success: false,
-                message: "Error al registrar usuario" + error.message,
-            });
-        }
-    },
-    //Google Callback
-    async googleCallBack(){
-        try{
-            const user = req.user;
-            const token = generateToken (user.id, user.email);
-            res.redirect(`http://localhost:5173/`); //Vista de frontend exitoso      
-        }catch(error){
-            res.redirect(`http://localhost:5173/`);//Vista de frontend si falla
-        }
-    }
-};
+  //Registro tradicional
+  async register(req, res) {
+    try {
+      const { email, name, password } = req.body;
+      const result = await authServices.register({ email, name, password });
 
+      res.status(201).json({
+        succes: true,
+        message: "Usuario registrado exitosamente",
+        data: result,
+      });
+    } catch (error) {
+      res.status(500).json({
+        succes: false,
+        message: error.message,
+      });
+    }
+  },
+
+  //Google Callback
+  async googleCallBack() {
+    try {
+      const user = req.user;
+      const token = generateToken(user.id, user.email);
+      res.redirect(`http://localhost:5173/`); //Vista de frontend exitoso
+    } catch (error) {
+      res.redirect(`http://localhost:5173/`); //Vista de frontend si falla
+    }
+  },
+};

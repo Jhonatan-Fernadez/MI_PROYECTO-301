@@ -1,6 +1,7 @@
 import express from "express";
 import { authControllers } from "../controllers/authControllers.js";
 //import { autenticate } from "../middlewares/authMiddlewares.js";
+import passport from "passport";
 
 const router = express.Router();
 
@@ -46,6 +47,13 @@ const router = express.Router();
  */
 
 router.post("/register", authControllers.register);
+
+router.get(
+  "/google",
+  passport.authenticate("google", {
+    scope: ["profile", "email"], 
+  })
+);
 
 router.get(
   "/google/callback",
