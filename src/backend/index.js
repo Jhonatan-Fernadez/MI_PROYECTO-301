@@ -17,7 +17,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(cors());
 app.use(express.json());
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use(express.urlencoded({ extended: true }));
 app.use(
   session({
@@ -41,5 +41,5 @@ app.use("/api/email", emailRoutes);
 app.use("/api/auth", authRoutes);
 
 app.listen(PORT, () => {
-  console.log("Servidor corriendo exitosamente 🚀");
+  console.log(`Servidor corriendo y escuchando en el puerto ${PORT}`);
 });
