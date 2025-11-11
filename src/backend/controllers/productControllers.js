@@ -5,10 +5,10 @@ const prisma = new PrismaClient();
 // Crear producto
 export const createProduct = async (req, res) => {
   try {
-    const { name, description, price } = req.body;
+    const { name, category, description, img , price } = req.body;
 
     const product = await prisma.product.create({
-      data: { name, description, price },
+      data: { name, category, description, img , price },
     });
 
     res.status(201).json(product);

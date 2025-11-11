@@ -21,7 +21,9 @@ model User {
 model Product {
   id          Int      @id @default(autoincrement())
   name        String
+  category    String
   description String?
+  img         String
   price       Float
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt

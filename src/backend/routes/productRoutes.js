@@ -38,10 +38,16 @@ router.get('/', getProducts);
  *             properties:
  *               name:
  *                 type: string
- *                 example: "Laptop Gamer"
+ *                 example: "Camisa Rosa"
+ *               category:
+ *                 type: string
+ *                 example: "Damas"
  *               description:
  *                 type: string
- *                 example: "Laptop con RTX 4060 y 16GB RAM"
+ *                 example: "Camisa con cuello V"
+ *               img:
+ *                  type: string
+ *                  example: "https://rematexperu.com/cdn/shop/products/14_2_e49b3853-a28d-4f5c-af31-ea1c429f4bb3.png?v=1641319164"
  *               price:
  *                 type: number
  *                 example: 4500
