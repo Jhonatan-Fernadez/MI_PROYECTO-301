@@ -1,5 +1,5 @@
 import express from 'express';
-import { createProduct, getProducts } from '../controllers/productControllers.js';
+import { createProduct, getProducts, deleteProduct } from '../controllers/productControllers.js';
 
 const router = express.Router();
 
@@ -7,7 +7,6 @@ const router = express.Router();
  * @swagger
  * tags:
  *   name: Products
- *   description: Rutas para gestionar productos
  */
 
 /**
@@ -53,5 +52,28 @@ router.get('/', getProducts);
  *         description: Error del servidor al crear producto
  */
 router.post('/', createProduct);
+
+/**
+ * @swagger
+ * /api/products/{id}:
+ *   delete:
+ *     summary: Elimina un producto por su ID
+ *     tags: [Products]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID del producto a eliminar
+ *     responses:
+ *       200:
+ *         description: Producto eliminado correctamente
+ *       404:
+ *         description: Producto no encontrado
+ *       500:
+ *         description: Error del servidor al eliminar producto
+ */
+router.delete('/:id', deleteProduct);
 
 export default router;
