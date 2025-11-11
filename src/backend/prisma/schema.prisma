@@ -1,6 +1,5 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -11,11 +10,19 @@ datasource db {
 }
 
 model User {
-  id Int @id @default(autoincrement())
-  email String @unique
-  name String
+  id       Int     @id @default(autoincrement())
+  email    String  @unique
+  name     String
   password String? //metodo tradicional
-  googleId String? @unique//metodo login con google
-  avatar String? //Obtener la foto de perfil
+  googleId String? @unique //metodo login con google
+  avatar   String? //Obtener la foto de perfil
+}
 
+model Product {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?
+  price       Float
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
