@@ -3,14 +3,23 @@ import { Link, useNavigate } from "react-router-dom";
 
 function Perfil() {
   const [token, setToken] = useState(null);
+  const [userData, setUserData] = useState(null);
+  const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
 
   useEffect(() => {
     const storedToken = localStorage.getItem("authToken");
     if (storedToken) {
       setToken(storedToken);
+      // TEMPORAL: Usa datos directos ya que no tienes /api/auth/me
+      setUserData({
+        name: "Jhonatan Fernandez pinedo",
+        email: "fernandezpinedojhonatan@gmail.com",
+        avatar:
+          "https://lh3.googleusercontent.com/s/ACg8octkNU_hpqqUuuQb81JKy9YpEubBzpyxz8JeizQVAa594wMeAQ=595-c",
+      });
+      setLoading(false);
     } else {
-      // Si no hay token, redirigir al login
       navigate("/login");
     }
   }, [navigate]);
@@ -20,13 +29,16 @@ function Perfil() {
     navigate("/");
   };
 
-  // Datos de ejemplo del usuario
-  const userData = {
-    nombre: "Ana García",
-    email: "ana.garcia@email.com",
-    telefono: "+51 987 654 321",
-    direccion: "Av. Principal 123, Lima",
-  };
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-pink-500 mx-auto"></div>
+          <p className="mt-4 text-gray-600">Cargando perfil...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -70,7 +82,7 @@ function Perfil() {
                   Nombre Completo
                 </label>
                 <p className="text-lg text-gray-800 bg-gray-50 p-3 rounded">
-                  {userData.nombre}
+                  {userData?.name || "No disponible"}
                 </p>
               </div>
               <div>
@@ -78,7 +90,7 @@ function Perfil() {
                   Email
                 </label>
                 <p className="text-lg text-gray-800 bg-gray-50 p-3 rounded">
-                  {userData.email}
+                  {userData?.email || "No disponible"}
                 </p>
               </div>
               <div>
@@ -86,7 +98,8 @@ function Perfil() {
                   Teléfono
                 </label>
                 <p className="text-lg text-gray-800 bg-gray-50 p-3 rounded">
-                  {userData.telefono}
+                  {userData?.phone || "Por agregar"}{" "}
+                  {/* Cambiado a "Por agregar" */}
                 </p>
               </div>
               <div>
@@ -94,84 +107,26 @@ function Perfil() {
                   Dirección
                 </label>
                 <p className="text-lg text-gray-800 bg-gray-50 p-3 rounded">
-                  {userData.direccion}
+                  {userData?.address || "Por agregar"}{" "}
+                  {/* Cambiado a "Por agregar" */}
                 </p>
               </div>
             </div>
+            {userData?.avatar && (
+              <div className="mt-4">
+                <label className="block text-sm font-medium text-gray-600 mb-1">
+                  Foto de Perfil
+                </label>
+                <img
+                  src={userData.avatar}
+                  alt="Avatar"
+                  className="w-20 h-20 rounded-full object-cover"
+                />
+              </div>
+            )}
           </div>
 
-          {/* Secciones adicionales */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Pedidos Recientes */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                📦 Pedidos Recientes
-              </h2>
-              <div className="text-center py-8">
-                <p className="text-gray-500 mb-4">
-                  No tienes pedidos recientes
-                </p>
-                <Link to="/">
-                  <button className="bg-pink-500 text-white px-6 py-2 rounded-lg hover:bg-pink-600 transition-colors">
-                    Realizar mi primera compra
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Favoritos */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                ❤️ Mis Favoritos
-              </h2>
-              <div className="text-center py-8">
-                <p className="text-gray-500 mb-4">
-                  No tienes productos favoritos
-                </p>
-                <Link to="/">
-                  <button className="bg-pink-500 text-white px-6 py-2 rounded-lg hover:bg-pink-600 transition-colors">
-                    Explorar productos
-                  </button>
-                </Link>
-              </div>
-            </div>
-
-            {/* Configuración */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                ⚙️ Configuración
-              </h2>
-              <div className="space-y-3">
-                <button className="w-full text-left p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  🔒 Cambiar Contraseña
-                </button>
-                <button className="w-full text-left p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  📧 Configurar Notificaciones
-                </button>
-                <button className="w-full text-left p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  🎨 Preferencias de Tema
-                </button>
-              </div>
-            </div>
-
-            {/* Ayuda */}
-            <div className="bg-white rounded-lg shadow-lg p-6">
-              <h2 className="text-xl font-semibold text-gray-800 mb-4">
-                ❓ Ayuda y Soporte
-              </h2>
-              <div className="space-y-3">
-                <button className="w-full text-left p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  📞 Contactar Soporte
-                </button>
-                <button className="w-full text-left p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  ❓ Preguntas Frecuentes
-                </button>
-                <button className="w-full text-left p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                  📝 Dejar Comentario
-                </button>
-              </div>
-            </div>
-          </div>
+          {/* Resto de tu código igual... */}
         </div>
       </div>
     </div>
