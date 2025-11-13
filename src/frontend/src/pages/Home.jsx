@@ -94,7 +94,7 @@ function Home() {
       <header className="bg-pink-400 text-white flex justify-between items-center px-10 py-4">
         <div className="flex items-center gap-8">
           <Link to="/" className="text-2xl font-bold">
-            Rava Avis
+            Yara Avis
           </Link>
           <nav className="flex gap-6 font-medium">
             {["Todos", "Damas", "Caballeros", "Ofertas", "Más categorías"].map(

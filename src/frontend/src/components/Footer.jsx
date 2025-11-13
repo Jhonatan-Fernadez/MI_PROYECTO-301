@@ -58,7 +58,7 @@ function Footer() {
         </div>
       </div>
       <div className="border-t border-gray-600 mt-8 pt-4 text-center text-sm">
-        &copy; {new Date().getFullYear()} Rava Avis. Todos los derechos
+        &copy; {new Date().getFullYear()} Yara Avis. Todos los derechos
         reservados.
       </div>
     </footer>

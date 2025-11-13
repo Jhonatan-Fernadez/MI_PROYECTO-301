@@ -46,7 +46,7 @@ function Perfil() {
       <header className="bg-pink-400 text-white py-4 px-6">
         <div className="container mx-auto flex justify-between items-center">
           <Link to="/" className="text-2xl font-bold">
-            Rava Avis
+            Yara Avis
           </Link>
           <div className="flex gap-4">
             <Link to="/">
